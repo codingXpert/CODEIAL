@@ -5,6 +5,9 @@ const port = 8000;
 //USE EXPRESS ROUTER
 app.use('/' , require('./routes'));
 
+app.set('view engine' ,'ejs');
+app.set('views' , './views');
+
 //CREATING SERVER
 app.listen(port , function(err){
     if(err){
