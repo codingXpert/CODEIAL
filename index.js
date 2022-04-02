@@ -28,8 +28,7 @@ app.set('layout extractStyles' , true);
 app.set('layout extractScripts' , true);
 
 
-//USE EXPRESS ROUTER
-app.use('/' , require('./routes'));
+
 
 app.set('view engine' ,'ejs');
 app.set('views' , './views');
@@ -52,7 +51,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
-app.use(passport.setAuthenticatedUser);
+//USE EXPRESS ROUTER
+app.use('/' , require('./routes'));
 
 //CREATING SERVER
 app.listen(port , function(err){
