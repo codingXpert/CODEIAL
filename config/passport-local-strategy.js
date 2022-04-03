@@ -32,7 +32,7 @@ User.findOne({email:email} , function(err , user){
 
 //serializing the user to decide which key is to be kept in the cookie
 passport.serializeUser(function(user , done){
-    done(null , User)
+    done(null , user.id)
 });
 
 //deserilazition the user from the key in the cookie
@@ -52,6 +52,7 @@ passport.checkAuthentication = function(req , res , next){
     //if the user is signed in , then pass on the request to the next function(controller's action)
     if(req.isAuthenticated()){
         return next();
+        
     }
 
     // if the user is not signed in
