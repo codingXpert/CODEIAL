@@ -12,7 +12,7 @@ db.on('error', console.error.bind(console , "error connecting to db"));
 
 // up and successful running
 db.once('open' , function(){
-    console.log('Successfuly connected to the database');
+    console.log(' Connected to the databaseb :: MongoDB');
 });
 
 module.exports= db;

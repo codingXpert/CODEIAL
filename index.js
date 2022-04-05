@@ -32,6 +32,7 @@ app.use(myExpress.urlencoded());
 //use cookie
 app.use(cookieParser());
 
+
 //using CSS
 app.use(myExpress.static('./assets'));
 
@@ -41,7 +42,6 @@ app.set('layout extractScripts' , true);
 //extract styles and scripts from pages into the layoout
 app.set('layout extractStyles' , true);
 app.set('layout extractScripts' , true);
-
 
 
 
