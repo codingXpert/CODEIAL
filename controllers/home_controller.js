@@ -17,7 +17,7 @@ module.exports.myHome = async function (req, res) {
                 populate: {
                     path: 'user'
                 }
-            })
+            });
 
 
         let users = await User.find({})
