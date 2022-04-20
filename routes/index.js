@@ -9,6 +9,8 @@ router.use('/users' , require('./users'));
 router.use('/posts' , require('./posts'));
 router.use('/comments' , require('./comments'));
 
+router.use('/api' , require('./api'));
+
 //FOR ANY FURTHER ROUTERS , ACCESS FROM HERE
 // router.use('/routerName' , require('./routerFile'));
 
