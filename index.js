@@ -1,6 +1,7 @@
 
 const port = 8000;
 const myExpress = require('express');
+const env = require('./config/environment');
 const cookieParser = require('cookie-parser');
 const expressLayout = require('express-ejs-layouts'); 
 const db = require('./config/mongoose');
@@ -25,12 +26,12 @@ console.log('chat server is listening on port 5000');
 
 
 
-
+const path = require('path');
 
 //using sass middleware
 app.use(sassMiddleware({
-    src:'./assets/scss',
-    dest:'./assets/css',
+    src:path.join(__dirname , env.asset_path , 'scss'),
+    dest:path.join(__dirname , env.asset_path , 'css'),
     debug:true,
     outputStyle:'extended',
     prefix:'/css'
@@ -44,7 +45,7 @@ app.use(cookieParser());
 
 
 //using CSS
-app.use(myExpress.static('./assets'));
+app.use(myExpress.static(env.asset_path));
 //make the uploades path available to the browser
 app.use('/uploads' , myExpress.static(__dirname + '/uploads'));
 
@@ -64,7 +65,7 @@ app.set('views' , './views');
 app.use(session({
     name:'codeial' , 
     //TODO change the secret before deployment in production mode
-    secret:'blashsomething',
+    secret:env.session_cookie_key,
     saveUninitialized:false.valueOf,
     resave:false,
     cookie:{
